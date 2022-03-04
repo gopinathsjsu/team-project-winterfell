@@ -10,8 +10,8 @@ Shreemathi Duvvuri - 015273102<br />
 Madhurima Subodh Dani - 015261974
 
 ## Technology Stack and Tools
-Backend: ExpressJs, NodeJs
-Frontend: ReactJs
-Database: MongoDB
-Deployment: AWS EC2
-Version Control: GitHub
+Backend: ExpressJs, NodeJs <br />
+Frontend: ReactJs <br />
+Database: MongoDB <br />
+Deployment: AWS EC2 <br />
+Version Control: GitHub <br />
