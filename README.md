@@ -20,4 +20,4 @@ Version Control: GitHub <br />
 
 ## [Project Journal](https://github.com/gopinathsjsu/team-project-winterfell/blob/main/Documentation/Project%20Journal.md)
 
-## [Sprint Task Sheet and Burndown Chart](https://docs.google.com/spreadsheets/d/1ZPO_1mgX0D86H0nyHIqEgj-whBWn4tDGLM_OhtAK2eo/edit?usp=sharing)
+## [Sprint Task Sheet and Burndown Chart](https://github.com/gopinathsjsu/team-project-winterfell/blob/main/Documentation/Sprint%20Task%20Sheet.xlsx)
