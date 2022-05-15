@@ -23,6 +23,12 @@ Version Control: GitHub <br />
 -Simplicity <br />
 -Feedback <br />
 
+## Feature Distribution
+Shrey: Booking Management <br />
+Rushikesh: Pricing and Reward Points Management <br />
+Shreemathi: Search Management and Signin/Signup <br />
+Madhurima: Hotel and Room Management
+
 ## [Project Board](https://github.com/gopinathsjsu/team-project-winterfell/projects/1)
 
 ## [Project Journal](https://docs.google.com/spreadsheets/d/1G1a3WV0ZTsQYyZpUwtGUbtUzzWeUH1BM/edit?usp=sharing&ouid=117723504120168442348&rtpof=true&sd=true)
