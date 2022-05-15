@@ -25,7 +25,7 @@ Version Control: GitHub <br />
 
 ## Work Distribution
 Shrey: Booking Management <br />
-Rushikesh: Pricing and Reward Points Management <br />
+Rushikesh: Pricing (Dynamic Pricing) and Reward Points Management <br />
 Shreemathi: Search Management and Signin/Signup <br />
 Madhurima: Hotel and Room Management
 
