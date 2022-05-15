@@ -18,6 +18,11 @@ Version Control: GitHub <br />
 
 ### Sprint Meeting : Every Sunday
 
+## XP Core Values Implemented
+-Communication <br />
+-Simplicity <br />
+-Feedback <br />
+
 ## [Project Board](https://github.com/gopinathsjsu/team-project-winterfell/projects/1)
 
 ## [Project Journal](https://docs.google.com/spreadsheets/d/1G1a3WV0ZTsQYyZpUwtGUbtUzzWeUH1BM/edit?usp=sharing&ouid=117723504120168442348&rtpof=true&sd=true)
