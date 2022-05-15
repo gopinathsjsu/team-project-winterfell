@@ -18,7 +18,7 @@ Version Control: GitHub <br />
 
 ## [Project Board](https://github.com/gopinathsjsu/team-project-winterfell/projects/1)
 
-## [Project Journal](https://github.com/gopinathsjsu/team-project-winterfell/blob/main/Documentation/Project%20Journal.md)
+## [Project Journal](https://docs.google.com/spreadsheets/d/1G1a3WV0ZTsQYyZpUwtGUbtUzzWeUH1BM/edit?usp=sharing&ouid=117723504120168442348&rtpof=true&sd=true)
 
 ## [Sprint Task Sheet and Burndown Chart](https://docs.google.com/spreadsheets/d/1cvypucnhc4da14zU-ZTfGN6geSBOni5A3sdSlowPct0/edit?usp=sharing)
 
