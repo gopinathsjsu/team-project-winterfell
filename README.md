@@ -16,6 +16,8 @@ Database: MongoDB <br />
 Deployment: AWS EC2 <br />
 Version Control: GitHub <br />
 
+### Sprint Meeting : Every Sunday
+
 ## [Project Board](https://github.com/gopinathsjsu/team-project-winterfell/projects/1)
 
 ## [Project Journal](https://docs.google.com/spreadsheets/d/1G1a3WV0ZTsQYyZpUwtGUbtUzzWeUH1BM/edit?usp=sharing&ouid=117723504120168442348&rtpof=true&sd=true)
