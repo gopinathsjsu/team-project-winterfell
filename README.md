@@ -23,7 +23,7 @@ Version Control: GitHub <br />
 -Simplicity <br />
 -Feedback <br />
 
-## Feature Distribution
+## Work Distribution
 Shrey: Booking Management <br />
 Rushikesh: Pricing and Reward Points Management <br />
 Shreemathi: Search Management and Signin/Signup <br />
