@@ -47,7 +47,7 @@ export default class Payment extends React.Component {
           cvv:"",
         
         };
-       console.log(props.location.state)
+      
   
       }
 
@@ -95,9 +95,7 @@ export default class Payment extends React.Component {
                 bookingNumber: res.data.result.updatedData.bookingNumber
             });
         })
-      console.log("new price, payment.js");
-    console.log(this.state.newPrice);
-      console.log(this.state.bookingNumber);
+
 }
 
     render() { 
