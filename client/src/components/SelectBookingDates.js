@@ -24,7 +24,6 @@ export default class SelectBookingDates extends React.Component {
           startDate:"",
           endDate:"",
         };
-       console.log(props.location.state)
        this.state.hotelLocation=props.location.state;
       }
 
@@ -46,9 +45,8 @@ export default class SelectBookingDates extends React.Component {
             endDate: this.state.endDate,
             type: this.state.type
           };
-          console.log(data);
+   
   
-          //update API
           axios.post(`${process.env.REACT_APP_API}/getHotelFromLocationAndDates`, data,  {
             headers: {
                 authorization: localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')).result.token: ""
@@ -73,8 +71,7 @@ export default class SelectBookingDates extends React.Component {
         if(difference>7){
           dateError=true;
         }
-        console.log(dateError);
-        console.log(difference);
+
         return (
             
             <>
