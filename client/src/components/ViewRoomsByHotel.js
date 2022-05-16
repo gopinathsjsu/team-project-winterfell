@@ -22,7 +22,7 @@ export default class ViewRoomsByHotel extends React.Component {
           result: [],
           hotelNumber: "",
           roomNumber:"",
-          hotelNumber:"",
+          // hotelNumber:"",
           roomBasePrice:"",
           type:"",
           typeCharge:"",
