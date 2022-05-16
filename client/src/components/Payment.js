@@ -32,6 +32,7 @@ export default class Payment extends React.Component {
           // endDate:"",
           friend: false,
           price: "",
+            newPrice: "",
           bookingNumber: null,
           userId:"",
           // hotelNumber:"",
@@ -85,10 +86,18 @@ export default class Payment extends React.Component {
         }
     }).then(res => {
       console.log(res.data);
-            const hotels = res.data.newPrice;
-            this.setState({hotels});
+            // const hotels = res.data.price;
+            // this.setState({hotels});
+        console.log(res.data.result.updatedData)
+            this.setState({
+                message: "ok",
+                newPrice: res.data.result.updatedData.price,
+                bookingNumber: res.data.result.updatedData.bookingNumber
+            });
         })
-    console.log(this.state.hotels);
+      console.log("new price, payment.js");
+    console.log(this.state.newPrice);
+      console.log(this.state.bookingNumber);
 }
 
     render() { 
@@ -152,7 +161,7 @@ export default class Payment extends React.Component {
                     pathname: "/confirmation", 
                     state: {
                        amount: this.props.location.state.amount,
-                       bookingNumber: this.props.location.state.bookingNumber,
+                       bookingNumber: this.state.bookingNumber,
                        userId: this.props.location.state.userId,
                        hotelId:this.props.location.state.hotelId,
                        roomId:this.props.location.state.roomId,
@@ -160,7 +169,7 @@ export default class Payment extends React.Component {
                        endDate:this.props.location.state.endDate,
                        guests: this.props.location.state.guests,
                        status: this.props.location.state.status,
-                       finalPrice:this.state.finalPrice,       
+                       finalPrice:this.state.newPrice,
                     }
                     }}>
                      <h4 style={{color:'cornflowerblue', textAlign:'center', marginTop:'20px'}}>Pay</h4>
