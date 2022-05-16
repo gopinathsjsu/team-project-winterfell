@@ -585,7 +585,10 @@ adminController.getRoom = async function(req,res){
 adminController.addBooking = async function(req,res){
     console.log("booking")
     try{
-
+        // const maxBookingNums = await Book.find(`bookingNumber`);
+    const maxBookingNums = await Book.find({},{bookingNumber:1}).sort({bookingNumber:-1}).limit(1);
+    // const maxBookingNums = Book.find({}).sort({_id:-1}).limit(1);
+   console.log(maxBookingNums);
         
         let nextBookingNum=0;
 
