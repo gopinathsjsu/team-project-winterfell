@@ -39,8 +39,12 @@ adminController.signup = async function (req, res) {
     // console.log("printting mac userId")
     // console.log(maxUserId)
     // console.log((parseInt(maxUserId[0].userId,10)))
-    const nextUserId = ((parseInt(maxUserId[0].userId,10) > 0))?(parseInt(maxUserId[0].userId,10) + 1):1;
-    console.log(nextUserId)
+    let nextUserId = 0;
+    if(maxUserId.length === 0){
+	nextUserId = 1;
+    }else{
+    	nextUserId = parseInt(maxUserId[0].userId,10) + 1;
+    }
 
     Admin.findOne({ email: req.body.email }).then(function (user) {
         if (user) {
@@ -189,8 +193,12 @@ adminController.addHotel = async function (req, res){
     console.log("addHotel")
     const maxHotelNum = await Hotel.find({},{"hotelNumber":1}).sort({hotelNumber:-1}).limit(1);
     // const maxHotelNum = await Hotel.find({},{"hotelNumber":1}).sort({_id:-1}).limit(1);
-   console.log(maxHotelNum)
-    const nextHotelNum = ((parseInt(maxHotelNum[0].hotelNumber,10) > 0))?(parseInt(maxHotelNum[0].hotelNumber,10) + 1):1;
+   let nextHotelNum = 0;
+    if(maxHotelNum.length === 0){
+	nextHotelNum = 1;
+    }else{
+    	nextHotelNum = parseInt(maxHotelNum[0].hotelNumber,10) + 1;
+    }
     try{
         const hotel = {
             hotelNumber: nextHotelNum,
@@ -441,7 +449,13 @@ adminController.getHotelFromLocation = async function(req,res){
 adminController.addRoom = async function(req,res){
     console.log("room added")
     const maxRoomNum = await Room.find({},{"roomNumber":1}).sort({roomNumber:-1}).limit(1);
-    const nextRoomNum = ((parseInt(maxRoomNum[0].roomNumber,10) > 0))?(parseInt(maxRoomNum[0].roomNumber,10) + 1):1;
+    
+   let nextRoomNum = 0;
+      if(maxRoomNum.length === 0){
+	nextRoomNum = 1;
+      }else{
+    	nextRoomNum = parseInt(maxRoomNum[0].roomNumber,10) + 1;
+      }
 
     try{
         const room = {
