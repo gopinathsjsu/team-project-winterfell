@@ -121,7 +121,7 @@ export default class AllBookings extends React.Component {
                                             {booking.hotelId}
                                         </td>
                                         <td style={{width: '100px'}} key={booking.roomId}>
-                                            {booking.roomId}
+                                            {booking.roomNumber}
                                         </td>
                                         <td style={{width: '100px'}} key={booking.startDate}>
                                             {(booking.startDate).split("T")[0]}
