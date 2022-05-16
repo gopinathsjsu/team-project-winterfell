@@ -44,7 +44,7 @@ export default class Confirmation extends React.Component {
         
         
         };
-       console.log(props.location.state)
+       //console.log(props.location.state)
   
       }
     //   componentDidMount() {
