@@ -38,3 +38,7 @@ Madhurima: Hotel and Room Management
 ## Class Diagram 
 
 ![class_diag_team](https://user-images.githubusercontent.com/89545745/168493617-b93aea71-d409-492c-bee0-5a115ea1eb22.PNG)
+
+## Architecture Diagram 
+![team-architecture](https://user-images.githubusercontent.com/51197183/168523098-9e37a434-8d4c-4d1b-ad83-3bcbce95bfe0.jpeg)
+
