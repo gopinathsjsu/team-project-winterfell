@@ -3,21 +3,14 @@ import axios from "axios";
 import ConnectNav from "../components/ConnectNav";
 import UserDashboardNav from "./UserDashboardNav";
 
-// let config = {
-//     headers: {
-//         authorization:  JSON.parse(localStorage.getItem('auth')).result.token
-//     }
-// }
 
-// const listItems;
 
 export default class ListHotels extends React.Component {
     state = {
         hotels: []
     }
 
-    // export const addhotel = async (hotel) =>
-    //     await axios.post(`${process.env.REACT_APP_API}/addHotel`, hotel, config);
+
 
     componentDidMount() {
         axios.post(`${process.env.REACT_APP_API}/getAllHotels`, {
@@ -31,12 +24,12 @@ export default class ListHotels extends React.Component {
                 console.log(hotels);
                 this.setState({hotels});
             })
-        console.log(this.state.hotels);
+  
     }
 
 
 
-    // const listItems = this.state.hotels.map((hotels) => <li>{hotels}</li>);
+  
 
     render() {
         return (
