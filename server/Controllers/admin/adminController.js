@@ -341,11 +341,14 @@ adminController.getHotelFromLocationAndDates = async function(req,res){
             var b1 = []
             var b2
             for(const b of rooms){
+                console.log("insidefor")
                 b2 = await Book.find({roomNumber: b.roomNumber} );
+                console.log("b2 : "+b2)
                 b1 = [...b1, ...b2];
             }
             //const var2 = await Book.find({$or: var1});
             if(b1.length == 0){
+                console.log("inside b1.length if")
                 res.status(responseMessages.hotelsFound.code).json({
                     message: responseMessages.hotelsFound.message,
                     rooms:rooms,
@@ -353,6 +356,7 @@ adminController.getHotelFromLocationAndDates = async function(req,res){
             }
             else{
                 for (const element of b1) {
+                    console.log("inside for loop for b1")
                     d1 = req.body.startDate;
                     d2 = req.body.endDate;
                     startD = element.startDate;
@@ -378,8 +382,9 @@ adminController.getHotelFromLocationAndDates = async function(req,res){
                             );
                         },
                         inRange:function(d,start,end) {
+                            console.log("inrange: "+ start + "  " + end)
                             return (
-                                isFinite(d=this.convert(d1).valueOf()) &&
+                                isFinite(d=this.convert(d).valueOf()) &&
                                 isFinite(start=this.convert(start).valueOf()) &&
                                 isFinite(end=this.convert(end).valueOf()) ?
                                     start <= d && d <= end :
@@ -414,19 +419,6 @@ adminController.getHotelFromLocationAndDates = async function(req,res){
         }
     }catch(err){console.log("last error");}}
 
-//if(var1.length != 0 && var2.length !=0){
-//  res.status(responseMessages.hotelsFound.code).json({
-//    message: responseMessages.hotelsFound.message,
-//  rooms:var1,
-//});
-// }
-
-
-//else{
-//  res.status(responseMessages.hotelsNotFound.code).json({
-//    message: responseMessages.hotelsNotFound.message,
-//});
-//}
 
 
 adminController.getHotelFromLocation = async function(req,res){
@@ -611,7 +603,7 @@ adminController.addBooking = async function(req,res){
         let user = await Admin.find({userId: req.body.userId})
         console.log("req.body.rewardPoints "+req.body.rewardPoints)
         console.log("user.rewardPoints "+user[0].rewardPoints)
-        var newBalance = parseInt(user[0].rewardPoints,10) - parseInt(req.body.rewardPoints,10)
+        var newBalance = parseInt(user[0].rewardPoints,10) - parseInt(req.body.rewardPoints,10) + 1
         console.log("newBalance "+newBalance)
         user = await Admin.findOneAndUpdate({userId: req.body.userId},{
             rewardPoints: newBalance
