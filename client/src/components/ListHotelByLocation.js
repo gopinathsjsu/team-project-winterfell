@@ -93,10 +93,19 @@ export default class ListHotelByLocation extends React.Component {
         <UserDashboardNav />
       </div>
                 
-            <form onSubmit={this.onSubmit}>
-                <div style={{display:'flex', flexDirection:'row'}}>
-                
+      <form onSubmit={this.onSubmit}>
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                  <center>
+                <table>
+                  <tr>
+                  <td>
+
                 <label id="label">Select Location</label>
+                </td>
+  
+                
+                <td style={{width: '150px'}}>
+
           <select
             name='hotelLocation'
             onChange={this.onChange}
@@ -110,13 +119,19 @@ export default class ListHotelByLocation extends React.Component {
               );
             })}
            </select>  
+  </td>
+
+  <td style={{width: '150px'}}>
 
            <div className="registerButton">
                 <Button type="submit">
                   Search
                 </Button>
               </div>
- 
+              </td>
+              </tr>
+              </table>
+              </center>
            </div>
            </form>
 
