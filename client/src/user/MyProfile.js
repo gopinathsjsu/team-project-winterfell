@@ -78,7 +78,7 @@ export default class MyProfile extends React.Component {
 
   componentDidMount() {
     let data = {
-      userName: JSON.parse(localStorage.getItem('auth')).result.userName
+      userId: JSON.parse(localStorage.getItem('auth')).result.userId
     }
     axios.post(`${process.env.REACT_APP_API}/getProfile`, data,  {
       headers: {
@@ -184,22 +184,39 @@ export default class MyProfile extends React.Component {
               <tr>
                 <div className="form-group mb-3">
                   <td style={{width: '250px'}}>
-                    <label className="form-label">Profile Image</label>
+                    <label className="form-label">Reward Points</label>
                   </td>
                   <td style={{width: `400px`}}>
                     <input
-                        name = "profileImage"
+                        name = "type"
                         type="text"
                         className="form-control"
-                        placeholder="Enter Profile Image Link"
-                        defaultValue={this.state.profile.profileImage}
-                        // defaultValue={(this.state.profile.profileImage)?
-                        //     (this.state.profile.profileImage):"Enter Profile Image Link"}
+                        placeholder="Enter Reward Points"
+                        value={this.state.profile.rewardPoints}
                         onChange={this.onChange}
                     />
                   </td>
                 </div>
               </tr>
+              {/*<tr>*/}
+              {/*  <div className="form-group mb-3">*/}
+              {/*    <td style={{width: '250px'}}>*/}
+              {/*      <label className="form-label">Profile Image</label>*/}
+              {/*    </td>*/}
+              {/*    <td style={{width: `400px`}}>*/}
+              {/*      <input*/}
+              {/*          name = "profileImage"*/}
+              {/*          type="text"*/}
+              {/*          className="form-control"*/}
+              {/*          placeholder="Enter Profile Image Link"*/}
+              {/*          defaultValue={this.state.profile.profileImage}*/}
+              {/*          // defaultValue={(this.state.profile.profileImage)?*/}
+              {/*          //     (this.state.profile.profileImage):"Enter Profile Image Link"}*/}
+              {/*          onChange={this.onChange}*/}
+              {/*      />*/}
+              {/*    </td>*/}
+              {/*  </div>*/}
+              {/*</tr>*/}
 
 
 
