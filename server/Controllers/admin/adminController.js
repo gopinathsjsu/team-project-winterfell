@@ -697,11 +697,25 @@ adminController.calculatePrice = async function(req,res){
             c1+= roomBasePrice;
         }
 
-        var newDate = loop.setDate(loop.getDate() );
+        var newDate = loop.setDate(loop.getDate() + 1);
         loop = new Date(newDate);
     }
 
-  
+    if (breakfast){
+        console.log("brkfast")
+        c1+= hotel[0].breakfast
+    }
+    if (meal){
+        c1+= hotel[0].meal
+    }if (gym){
+        c1+= hotel[0].gym
+    }if (pool){
+        c1+= hotel[0].pool
+    }if (parking){
+        c1+= hotel[0].parking
+    }if (guests == "3"){
+        c1+= hotel[0].extraGuestCharge
+    }
     console.log(c1)
 
     res.status(responseMessages.hotelUpdate.code).json({
