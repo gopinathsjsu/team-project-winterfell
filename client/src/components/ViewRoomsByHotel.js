@@ -70,9 +70,7 @@ export default class ViewRoomsByHotel extends React.Component {
             endDate: this.state.endDate
           };
 
-          console.log(data);
 
-          //calculate final price & redirect to final review
            axios.post(`${process.env.REACT_APP_API}/calculatePrice`, data, {
             headers: {
                 authorization: localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')).result.token: ""
