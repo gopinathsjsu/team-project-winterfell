@@ -19,12 +19,15 @@ Version Control: GitHub <br />
 ### Sprint Meeting : Every Sunday
 
 ## XP Core Values Implemented
--Communication <br />
--Simplicity <br />
--Feedback <br />
+-Communication: <br />
+Everyone provided their thoughts about the various possible scenarios according to problem statement and provided their opinions on what could turn out to be the best approach
+-Simplicity : <br />
+We worked on generating basic ideas to meet the requirements of the project 
+-Feedback: <br />
+We gave feedback for everyone’s approach and choose to work on the the ones which sounded better after analyzing the pros and cons.
 
 ## Work Distribution
-Shrey: Booking Management <br />
+Shrey: Booking Management and state managemenet <br />
 Rushikesh: Pricing (Dynamic Pricing) and Reward Points Management <br />
 Shreemathi: Search Management and Signin/Signup <br />
 Madhurima: Hotel and Room Management
