@@ -47,30 +47,7 @@ export default class Confirmation extends React.Component {
        //console.log(props.location.state)
   
       }
-    //   componentDidMount() {
-    //     searchResult=false;
-    //     let data={
-    //         amount: this.props.location.state.amount,
-    //         bookingNumber: this.props.location.state.bookingNumber,
-    //         userId: this.props.location.state.userId,
-    //         hotelId:this.props.location.state.hotelId,
-    //         roomId:this.props.location.state.roomId,
-    //         startDate:this.props.location.state.startDate,
-    //         endDate:this.props.location.state.endDate,
-    //         guests: this.props.location.state.guests,
-    //         status: this.props.location.state.status,
-    //         price: this.props.location.state.newPrice,
-    //     };
-    //     axios.post(`${process.env.REACT_APP_API}/addBooking`,data, {
-    //       headers: {
-    //           authorization: JSON.parse(localStorage.getItem('auth')).result.token
-    //       }
-    //   })
-    //         .then(res => {
-    //             const hotels = res.data.hotels;
-    //             this.setState({hotels});
-    //         })
-    // }
+   
 
 
 
