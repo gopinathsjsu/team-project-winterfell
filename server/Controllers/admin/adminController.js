@@ -420,7 +420,6 @@ adminController.getHotelFromLocationAndDates = async function(req,res){
     }catch(err){console.log("last error");}}
 
 
-
 adminController.getHotelFromLocation = async function(req,res){
     try{
         const hotels = await Hotel.find({hotelLocation: req.body.hotelLocation });
@@ -587,7 +586,6 @@ adminController.addBooking = async function(req,res){
     console.log("booking")
     try{
 
-        // const maxBookingNums = await Book.find(`bookingNumber`);
         
         let nextBookingNum=0;
 
@@ -651,7 +649,134 @@ adminController.addBooking = async function(req,res){
 }
 }
 
+adminController.updateBooking = async function (req, res) {
+    try{
+        const room = await Room.find({roomNumber: req.body.roomNumber});
+        console.log(room);
+        const roomBasePrice = room[0].roomBasePrice;
+        var start = new Date(req.body.startDate);
+        var end = new Date(req.body.endDate);
+        const hotel = await Hotel.find({hotelNumber: room[0].hotelNumber});
+        const temp1=await Book.find({bookingNumber:req.body.bookingNumber})
+        const bookingAmount1 = temp1[0].price
+        let user = await Admin.find({userId:req.body.userId})
+        const rewardPointsPrev = user[0].rewardPoints
+        var loop = new Date(start);
+        const weekendCharge = hotel[0].weekendCharge
+        const breakfast = req.body.breakfast
+        const meal = req.body.meal
+        console.log("meal "+meal)
+        const gym = req.body.gym
+        const pool = req.body.pool
+        const parking = req.body.parking
+        const guests = req.body.guests
+        const extraGuestCharge = hotel[0].extraGuestCharge
+        console.log(roomBasePrice);
+        console.log(weekendCharge);
+        console.log(start);
+        console.log(end);
 
+        var Holidays = require('date-holidays');
+        var hd = new Holidays();
+        hd.getStates('US');
+        hd.init('US');
+        hd.getHolidays(2022);
+
+        var c1 = 0;
+        //var c2 = 0;
+        while(loop <= end){
+            if (loop.getDay() == 6 || loop.getDay() == 0){
+
+                c1 += weekendCharge
+                console.log(c1)
+            }
+
+            else if (hd.isHoliday(loop) == true) {
+                c1 += holidayCharge;
+                console.log("holiday")
+            }
+            else{
+                c1+= roomBasePrice;
+            }
+
+            var newDate = loop.setDate(loop.getDate() + 1);
+            loop = new Date(newDate);
+        }
+
+        if (breakfast === "true"){
+            console.log("brkfast")
+            c1+= hotel[0].breakfast
+        }
+        if (meal === "true"){
+            console.log("meal")
+            c1+= hotel[0].meal
+        }
+        if (gym === "true"){
+            console.log("gym")
+            c1+= hotel[0].gym
+        }
+        if (pool === "true"){
+            console.log("pool")
+            c1+= hotel[0].pool
+        }
+        if (parking === "true"){
+            console.log("parking")
+            c1+= hotel[0].parking
+        }
+        if (guests === "3"){
+            c1+= hotel[0].extraGuestCharge
+        }
+        var bookingAmount2 = c1
+        var payFlag = "no"
+        var difference = 0
+        if (bookingAmount2>bookingAmount1){
+            difference = bookingAmount2-bookingAmount1
+            payFlag = "yes"
+        }
+        else{
+            difference = bookingAmount1-bookingAmount2
+            newBalance = bookingAmount1-bookingAmount2 + rewardPointsPrev
+            user = await Admin.findOneAndUpdate({userId: req.body.userId},{
+                rewardPoints: newBalance
+            });
+        }
+
+        const booking = await Book.findOneAndUpdate(
+            { bookingNumber:req.body.bookingNumber },
+            {
+                userId: req.body.userId,
+                bookingNumber: req.body.bookingNumber,
+                hotelId: req.body.hotelId,
+                roomId: req.body.roomID,
+                roomNumber: req.body.roomNumber,
+                amount: bookingAmount2,
+                price: bookingAmount2,
+                startDate: req.body.startDate,
+                endDate: req.body.endDate,
+                guests: req.body.guests,
+                status: req.body.status,
+                // price: req.body.price
+            }
+        );
+
+        const findBookingToReturn = await Book.findOne({bookingNumber:req.body.bookingNumber});
+
+        if (findBookingToReturn) {
+            res.status(responseMessages.hotelUpdate.code).json({
+                message: responseMessages.hotelUpdate.message,
+                res: findBookingToReturn,
+                diff: difference,
+                payFlag: payFlag
+
+            });
+        }
+    }catch(err) {
+        console.log(err);
+        res.status(responseMessages.hotelUpdateFailed.code).json({
+            message: responseMessages.hotelUpdateFailed.message
+        });
+    }
+}
 
 adminController.calculatePrice = async function(req,res){
     const room = await Room.find({roomNumber: req.body.roomNumber});
